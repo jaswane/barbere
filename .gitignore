@@ -1,0 +1,13 @@
+/node_modules
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts
+.env*
+.DS_Store
+npm-debug.log*
+.vercel
+
+# Lokal referansepakke (prototype og originalbilder), versjoneres ikke
+/_handoff/
