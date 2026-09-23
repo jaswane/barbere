@@ -9,7 +9,7 @@ export function SiteHeader() {
         </Link>
         <nav className="nav-links" aria-label="Hovedmeny">
           <Link className="nav-link" href="/#kategorier">Kategorier</Link>
-          <Link className="nav-link" href="/#produkter">Demo-produkter</Link>
+          <Link className="nav-link" href="/#produkter">Produkter</Link>
           <Link className="nav-cta" href="/#velger">Finn riktig valg</Link>
         </nav>
       </div>

@@ -1,8 +1,9 @@
+import type { OfferView } from "@/lib/offers";
 import { ShaverSelector } from "./ShaverSelector";
 
 const trustChips = ["Under ett minutt", "Ingen registrering", "Tydelig begrunnelse"];
 
-export function HeroAndSelector() {
+export function HeroAndSelector({ offers }: { offers: Record<string, OfferView> }) {
   return (
     <section className="hero" id="velger">
       <div className="wrap hero-grid">
@@ -21,7 +22,7 @@ export function HeroAndSelector() {
           </div>
         </div>
 
-        <ShaverSelector />
+        <ShaverSelector offers={offers} />
       </div>
     </section>
   );

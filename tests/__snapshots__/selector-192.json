@@ -1,0 +1,962 @@
+{
+  "face|smooth|yes|electric|low": [
+    "braun-series-5-52-b1000s",
+    "muhle-r89",
+    "muhle-companion"
+  ],
+  "face|smooth|yes|electric|mid": [
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55",
+    "muhle-r89"
+  ],
+  "face|smooth|yes|electric|high": [
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55",
+    "muhle-r89"
+  ],
+  "face|smooth|yes|electric|flex": [
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55",
+    "muhle-r89"
+  ],
+  "face|smooth|yes|razor|low": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|yes|razor|mid": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|yes|razor|high": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|yes|razor|flex": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|yes|unsure|low": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|yes|unsure|mid": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|yes|unsure|high": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|yes|unsure|flex": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|no|electric|low": [
+    "braun-series-5-52-b1000s",
+    "muhle-r89",
+    "muhle-companion"
+  ],
+  "face|smooth|no|electric|mid": [
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55",
+    "muhle-r89"
+  ],
+  "face|smooth|no|electric|high": [
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55",
+    "muhle-r89"
+  ],
+  "face|smooth|no|electric|flex": [
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55",
+    "muhle-r89"
+  ],
+  "face|smooth|no|razor|low": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|no|razor|mid": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|no|razor|high": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|no|razor|flex": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|no|unsure|low": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|no|unsure|mid": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|no|unsure|high": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|smooth|no|unsure|flex": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "face|trim|yes|electric|low": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|yes|electric|mid": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|yes|electric|high": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|yes|electric|flex": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|yes|razor|low": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|yes|razor|mid": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|yes|razor|high": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|yes|razor|flex": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|yes|unsure|low": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|yes|unsure|mid": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|yes|unsure|high": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|yes|unsure|flex": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|no|electric|low": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|no|electric|mid": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|no|electric|high": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|no|electric|flex": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|no|razor|low": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|no|razor|mid": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|no|razor|high": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|no|razor|flex": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|no|unsure|low": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|no|unsure|mid": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|no|unsure|high": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "face|trim|no|unsure|flex": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "philips-mg7940-15"
+  ],
+  "beard|smooth|yes|electric|low": [
+    "braun-series-5-52-b1000s",
+    "muhle-r89",
+    "muhle-companion"
+  ],
+  "beard|smooth|yes|electric|mid": [
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55",
+    "muhle-r89"
+  ],
+  "beard|smooth|yes|electric|high": [
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55",
+    "muhle-r89"
+  ],
+  "beard|smooth|yes|electric|flex": [
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55",
+    "muhle-r89"
+  ],
+  "beard|smooth|yes|razor|low": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|yes|razor|mid": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|yes|razor|high": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|yes|razor|flex": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|yes|unsure|low": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|yes|unsure|mid": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|yes|unsure|high": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|yes|unsure|flex": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|no|electric|low": [
+    "braun-series-5-52-b1000s",
+    "muhle-r89",
+    "muhle-companion"
+  ],
+  "beard|smooth|no|electric|mid": [
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55",
+    "muhle-r89"
+  ],
+  "beard|smooth|no|electric|high": [
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55",
+    "muhle-r89"
+  ],
+  "beard|smooth|no|electric|flex": [
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55",
+    "muhle-r89"
+  ],
+  "beard|smooth|no|razor|low": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|no|razor|mid": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|no|razor|high": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|no|razor|flex": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|no|unsure|low": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|no|unsure|mid": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|no|unsure|high": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|smooth|no|unsure|flex": [
+    "muhle-r89",
+    "muhle-companion",
+    "braun-series-5-52-b1000s"
+  ],
+  "beard|trim|yes|electric|low": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|yes|electric|mid": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|yes|electric|high": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|yes|electric|flex": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|yes|razor|low": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|yes|razor|mid": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|yes|razor|high": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|yes|razor|flex": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|yes|unsure|low": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|yes|unsure|mid": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|yes|unsure|high": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|yes|unsure|flex": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|no|electric|low": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|no|electric|mid": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|no|electric|high": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|no|electric|flex": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|no|razor|low": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|no|razor|mid": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|no|razor|high": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|no|razor|flex": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|no|unsure|low": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|no|unsure|mid": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|no|unsure|high": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "beard|trim|no|unsure|flex": [
+    "philips-oneblade-360-qp2734-23",
+    "philips-bt5780-15",
+    "remington-mb7050"
+  ],
+  "head|smooth|yes|electric|low": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|yes|electric|mid": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|yes|electric|high": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|yes|electric|flex": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|yes|razor|low": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|yes|razor|mid": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|yes|razor|high": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|yes|razor|flex": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|yes|unsure|low": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|yes|unsure|mid": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|yes|unsure|high": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|yes|unsure|flex": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|no|electric|low": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|no|electric|mid": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|no|electric|high": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|no|electric|flex": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|no|razor|low": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|no|razor|mid": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|no|razor|high": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|no|razor|flex": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|no|unsure|low": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|no|unsure|mid": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|no|unsure|high": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|smooth|no|unsure|flex": [
+    "remington-xr1500",
+    "remington-xr1600",
+    "remington-mb7050"
+  ],
+  "head|trim|yes|electric|low": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|yes|electric|mid": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|yes|electric|high": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|yes|electric|flex": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|yes|razor|low": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|yes|razor|mid": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|yes|razor|high": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|yes|razor|flex": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|yes|unsure|low": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|yes|unsure|mid": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|yes|unsure|high": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|yes|unsure|flex": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|no|electric|low": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|no|electric|mid": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|no|electric|high": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|no|electric|flex": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|no|razor|low": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|no|razor|mid": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|no|razor|high": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|no|razor|flex": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|no|unsure|low": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|no|unsure|mid": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|no|unsure|high": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "head|trim|no|unsure|flex": [
+    "remington-mb7050",
+    "philips-mg7940-15",
+    "remington-xr1500"
+  ],
+  "body|smooth|yes|electric|low": [
+    "philips-bg5475-15",
+    "muhle-companion",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|yes|electric|mid": [
+    "philips-bg5475-15",
+    "muhle-companion",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|yes|electric|high": [
+    "philips-bg5475-15",
+    "muhle-companion",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|yes|electric|flex": [
+    "philips-bg5475-15",
+    "muhle-companion",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|yes|razor|low": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|yes|razor|mid": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|yes|razor|high": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|yes|razor|flex": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|yes|unsure|low": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|yes|unsure|mid": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|yes|unsure|high": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|yes|unsure|flex": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|no|electric|low": [
+    "philips-bg5475-15",
+    "muhle-companion",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|no|electric|mid": [
+    "philips-bg5475-15",
+    "muhle-companion",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|no|electric|high": [
+    "philips-bg5475-15",
+    "muhle-companion",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|no|electric|flex": [
+    "philips-bg5475-15",
+    "muhle-companion",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|no|razor|low": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|no|razor|mid": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|no|razor|high": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|no|razor|flex": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|no|unsure|low": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|no|unsure|mid": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|no|unsure|high": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|smooth|no|unsure|flex": [
+    "muhle-companion",
+    "philips-bg5475-15",
+    "philips-mg7940-15"
+  ],
+  "body|trim|yes|electric|low": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|yes|electric|mid": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|yes|electric|high": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|yes|electric|flex": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|yes|razor|low": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|yes|razor|mid": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|yes|razor|high": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|yes|razor|flex": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|yes|unsure|low": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|yes|unsure|mid": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|yes|unsure|high": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|yes|unsure|flex": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|no|electric|low": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|no|electric|mid": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|no|electric|high": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|no|electric|flex": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|no|razor|low": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|no|razor|mid": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|no|razor|high": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|no|razor|flex": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|no|unsure|low": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|no|unsure|mid": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|no|unsure|high": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ],
+  "body|trim|no|unsure|flex": [
+    "philips-bg5475-15",
+    "philips-mg7940-15",
+    "muhle-companion"
+  ]
+}

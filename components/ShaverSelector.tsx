@@ -4,19 +4,24 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import { optionValues, questions, type Answers, type QuestionKey } from "@/data/questions";
-import { formatPrice } from "@/lib/catalogue";
+import { productName } from "@/data/products";
+import type { OfferView } from "@/lib/offers";
 import { explain, selectProducts } from "@/lib/selector";
 import { registerModelContextTool } from "@/lib/webmcp";
-import { DemoLink } from "./DemoToast";
+import { StoreLink } from "./StoreLink";
 
 const answerKeys: QuestionKey[] = ["target", "finish", "sensitive", "method", "budget"];
 const lastStep = questions.length - 1;
+
+function capitalize(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
 
 function isComplete(answers: Partial<Answers>): answers is Answers {
   return answerKeys.every((key) => answers[key] !== undefined);
 }
 
-export function ShaverSelector() {
+export function ShaverSelector({ offers }: { offers: Record<string, OfferView> }) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Partial<Answers>>({});
   const [showResults, setShowResults] = useState(false);
@@ -67,7 +72,7 @@ export function ShaverSelector() {
           setShowResults(true);
           document.getElementById("velger")?.scrollIntoView({ behavior: "smooth" });
           const { best, alternatives } = selectProducts(next);
-          return { recommended: best.name, alternatives: alternatives.map((product) => product.name) };
+          return { recommended: productName(best), alternatives: alternatives.map((product) => productName(product)) };
         },
       }),
     [],
@@ -144,17 +149,21 @@ export function ShaverSelector() {
             {result ? (
               <article className="winner-card">
                 <div>
-                  <span className="winner-badge">Anbefalt demo-valg</span>
-                  <h3>{result.best.name}</h3>
-                  <p>{result.best.best}</p>
-                  <div className="winner-price">
-                    ca. {formatPrice(result.best.price)} <span className="price-label">demo-pris</span>
+                  <span className="winner-badge">{result.best.productType}</span>
+                  <h3>{productName(result.best)}</h3>
+                  <p>{result.best.bestFor}</p>
+                  {offers[result.best.id]?.priceText ? (
+                    <div className="winner-price">
+                      {offers[result.best.id].priceText}{" "}
+                      <span className="price-label">{offers[result.best.id].checkedText}</span>
+                    </div>
+                  ) : null}
+                </div>
+                {offers[result.best.id] ? (
+                  <div className="result-actions">
+                    <StoreLink offer={offers[result.best.id]} />
                   </div>
-                </div>
-                <div className="result-actions">
-                  <DemoLink product={result.best.name} />
-                  <span className="ad-label">Demo – kommersiell lenke</span>
-                </div>
+                ) : null}
               </article>
             ) : null}
           </div>
@@ -162,9 +171,10 @@ export function ShaverSelector() {
             {result?.alternatives.map((product, index) => (
               <div className="alt-card" key={product.id}>
                 <div>
-                  <strong>{product.name}</strong>
+                  <strong>{productName(product)}</strong>
                   <span>
-                    {explain(product, result.answers)} Ca. {formatPrice(product.price)}.
+                    {explain(product, result.answers)}
+                    {offers[product.id]?.priceText ? ` ${capitalize(offers[product.id].priceText ?? "")}.` : null}
                   </span>
                 </div>
                 <span className="alt-score">#{index + 2}</span>

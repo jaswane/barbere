@@ -19,7 +19,7 @@ const steps = [
   },
   {
     title: "Har du sensitiv hud?",
-    text: "Svarer du ja, får skånsomme produkter et fortrinn og de andre et fratrekk. Hovedvalget blir da alltid et av de skånsomme.",
+    text: "Svarer du ja, får produkter som produsenten eller butikken beskriver som skånsomme, et fortrinn. Mangler en slik beskrivelse, teller det verken for eller mot. Et produkt trekkes bare ned hvis en kilde sier at det er lite egnet.",
   },
   {
     title: "Hva foretrekker du?",
@@ -59,7 +59,10 @@ export default function MethodPage() {
           Et produkt som koster litt mer enn budsjettet, kan likevel bli hovedvalg hvis det passer behovet klart bedre enn de
           rimeligere. Da er minst ett av de to alternativene innenfor budsjettet, slik at du kan sammenligne.
         </p>
-        <p>Passer to produkter like godt, vinner det rimeligste.</p>
+        <p>
+          Passer to produkter like godt, vinner det som vanligvis er rimeligst. Velgeren bruker den ordinære prisen, ikke dagens
+          kampanjepris, så et midlertidig tilbud endrer ikke anbefalingen.
+        </p>
       </section>
 
       <section className="info-section">
@@ -69,15 +72,24 @@ export default function MethodPage() {
           egenskaper og pris. Barbere.no skriver ikke at et produkt er testet med mindre det faktisk er det.
         </p>
         <p>
-          Produktene, prisene og butikkknappene er foreløpig fiktive. De viser hvordan velgeren fungerer, og skal erstattes
-          av ekte produkter.
+          Utvalget består foreløpig av elleve produkter, valgt slik at hvert område i velgeren har flere å velge mellom.
+          Egenskapene er i hovedsak hentet fra produsentenes egne sider, mens pris og lenke kommer fra butikken.
+        </p>
+      </section>
+
+      <section className="info-section">
+        <h2>Prisene er sjekket for hånd</h2>
+        <p>
+          Prisen vises med datoen den ble sjekket, og den oppdateres ikke automatisk. Er den eldre enn 60 dager, viser vi den
+          ikke, bare lenken til butikken.
         </p>
       </section>
 
       <section className="info-section" id="annonselenker">
         <h2>Om annonselenker</h2>
         <p>
-          Barbere.no har i dag ingen samarbeid med butikker eller merkevarer, og ingen lenker på siden gir provisjon.
+          Barbere.no har ingen samarbeid med butikker eller merkevarer. Knappene «Se pris hos …» er vanlige lenker til
+          butikkens produktside og gir ikke Barbere.no provisjon.
         </p>
         <p>
           Senere kan butikklenkene bli annonselenker. Det betyr at Barbere.no kan få provisjon hvis du kjøper noe etter å ha

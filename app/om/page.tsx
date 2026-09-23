@@ -31,10 +31,10 @@ export default function AboutPage() {
       </section>
 
       <section className="info-section">
-        <h2>Under utvikling</h2>
+        <h2>Et lite utvalg foreløpig</h2>
         <p>
-          Produktene og prisene på siden er foreløpig fiktive, og Barbere.no har ingen samarbeid med butikker eller
-          merkevarer. Når ekte produkter kommer inn, skal de ikke omtales som testet med mindre de faktisk er det.
+          Velgeren anbefaler foreløpig blant elleve produkter, og egenskapene er i hovedsak hentet fra produsentene.
+          Barbere.no har ingen samarbeid med butikker eller merkevarer og har ikke testet produktene selv.
         </p>
       </section>
 

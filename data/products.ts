@@ -1,85 +1,431 @@
-import type { Finish, Target } from "./questions.ts";
+import type { Product } from "./types.ts";
 
-export type ProductCategory = "barbermaskin" | "skjeggtrimmer" | "hode" | "kropp" | "hovel";
-export type ProductMethod = "electric" | "razor";
+export type { Product, ProductCategory, ProductMethod } from "./types.ts";
 
-/** Fiktive demoprodukter. Navn, priser og egenskaper er ikke ekte produktdata. */
-export interface Product {
-  id: string;
-  code: string;
-  name: string;
-  category: ProductCategory;
-  type: string;
-  targets: Target[];
-  finishes: Finish[];
-  methods: Array<ProductMethod | "unsure">;
-  sensitive: boolean;
-  budget: "low" | "mid" | "high";
-  price: number;
-  best: string;
-  features: string[];
-  reasons: { target: string; finish: string; sensitive: string };
-}
-
+/*
+ * Første ekte produktsett, verifisert 23.09.2026.
+ *
+ * Regler for dataene:
+ * - Egenskaper hentes fra produsenten der det er mulig, pris og produktside fra butikken.
+ * - Et produkt som er dokumentert for barbering eller trimming av ansiktet, regnes også for
+ *   «skjegg», fordi det er det samme området i velgeren.
+ * - `sensitivity.level` er `recommended` bare når kilden sier at produktet er skånsomt eller
+ *   reduserer irritasjon. Uten slik påstand er nivået `neutral`.
+ * - `referencePrice` er ordinær observert pris, ikke kampanjepris.
+ */
 export const products: readonly Product[] = [
   {
-    id: "nordtrim-s5", code: "S5", name: "Nordtrim S5", category: "barbermaskin", type: "Elektrisk barbermaskin",
-    targets: ["face", "beard"], finishes: ["smooth"], methods: ["electric", "unsure"], sensitive: true, budget: "mid", price: 1490,
-    best: "Tett barbering av ansiktet, også når huden lett blir rød.", features: ["Fleksibelt foliehode", "Våt og tørr", "60 min batteri"],
-    reasons: { target: "laget for tett barbering av ansikt og skjegg", finish: "gir et tett og glatt resultat", sensitive: "foliehodet er et skånsomt valg ved sensitiv hud" },
+    id: "braun-series-5-52-b1000s",
+    brand: "Braun",
+    model: "Series 5 52-B1000s",
+    category: "barbermaskin",
+    productType: "Foliebarbermaskin",
+    targets: ["face", "beard"],
+    finishes: ["smooth"],
+    method: "electric",
+    sensitivity: { level: "recommended", sourceId: "braun-nordics-series-5" },
+    referencePrice: { amount: 936, checkedAt: "2026-09-23", sourceId: "proshop-braun-series-5-52-b1000s" },
+    bestFor: "Daglig, tett barbering av ansiktet når huden lett blir irritert.",
+    features: ["3 fleksible blader", "Våt og tørr bruk", "Turbo- og standardmodus"],
+    reasons: {
+      target: "har tre fleksible blader som følger ansiktets konturer",
+      finish: "gir en tett barbering",
+      sensitive: "Braun oppgir at Series 5 er spesielt egnet for sensitiv hud",
+    },
+    specSourceIds: ["braun-nordics-series-5", "proshop-braun-series-5-52-b1000s"],
+    sources: [
+      {
+        id: "braun-nordics-series-5",
+        label: "Braun Nordics – Series 5",
+        url: "https://se.braun.com/en/male-grooming/shavers-for-men/series-5",
+        retrievedAt: "2026-09-23",
+        quote: "Engineered for a close yet gentle shave, especially suitable for sensitive skin.",
+      },
+      {
+        id: "proshop-braun-series-5-52-b1000s",
+        label: "Proshop – Braun Series 5 52-B1000s",
+        url: "https://www.proshop.no/Barbermaskin/Braun-Barbermaskin-Series-5-52-B1000s/3395678",
+        retrievedAt: "2026-09-23",
+        quote: "3 Flex-blader tilpasser seg komfortabelt ansiktets konturer",
+      },
+    ],
+    status: "active",
   },
   {
-    id: "fjordcut-r7", code: "R7", name: "FjordCut R7", category: "barbermaskin", type: "Roterende barbermaskin",
-    targets: ["face", "beard", "head"], finishes: ["smooth"], methods: ["electric", "unsure"], sensitive: false, budget: "high", price: 1890,
-    best: "Kraftig skjeggvekst og konturer som krever fleksible hoder.", features: ["Tre roterende hoder", "Hurtiglading", "Reiseetui"],
-    reasons: { target: "følger konturene i ansikt, skjegg og hode", finish: "tar kraftig vekst tett", sensitive: "passer best når huden tåler flere passeringer" },
+    id: "philips-s7882-55",
+    brand: "Philips",
+    model: "Shaver Series 7000 S7882/55",
+    category: "barbermaskin",
+    productType: "Roterende barbermaskin",
+    targets: ["face", "beard"],
+    finishes: ["smooth"],
+    method: "electric",
+    sensitivity: { level: "recommended", sourceId: "philips-uk-s7882-55" },
+    referencePrice: { amount: 1854, checkedAt: "2026-09-23", sourceId: "proshop-philips-s7882-55" },
+    bestFor: "Tett barbering med roterende hoder og veiledning i riktig teknikk.",
+    features: ["SkinIQ med bevegelsessensor", "Våt og tørr bruk", "Quick Clean Pod", "Popup-trimmer"],
+    reasons: {
+      target: "er en roterende barbermaskin for ansikt og skjegg",
+      finish: "gir en tett barbering med SteelPrecision-blader",
+      sensitive: "Philips oppgir at belegget reduserer friksjonen mot huden for å minimere irritasjon",
+    },
+    specSourceIds: ["philips-uk-s7882-55", "proshop-philips-s7882-55"],
+    sources: [
+      {
+        id: "philips-uk-s7882-55",
+        label: "Philips – Shaver series 7000 S7882/55",
+        url: "https://www.philips.co.uk/c-p/S7882_55/shaver-series-7000-wet-dry-electric-shaver",
+        retrievedAt: "2026-09-23",
+        quote: "Reduces friction on skin to minimise irritation",
+      },
+      {
+        id: "proshop-philips-s7882-55",
+        label: "Proshop – Philips Series 7000 S7882",
+        url: "https://www.proshop.no/Barbermaskin/Philips-Barbermaskin-Series-7000-S7882-isblaa/3242479",
+        retrievedAt: "2026-09-23",
+        quote:
+          "Shaver Series 7000 S7882 glir over huden med SkinIQ-bevegelsessensorer, SteelPrecision-blader og Power Adapt-sensorer for tett, beskyttende barbering.",
+      },
+    ],
+    status: "active",
   },
   {
-    id: "tryggbarber-l1", code: "L1", name: "TryggBarber L1", category: "hovel", type: "Sikkerhetshøvel",
-    targets: ["face", "beard", "head"], finishes: ["smooth"], methods: ["razor", "unsure"], sensitive: true, budget: "low", price: 590,
-    best: "Manuell, tett barbering med kontroll og rimelige blader.", features: ["Lukket kam", "Metallgrep", "5 demoblader"],
-    reasons: { target: "gir presis kontroll på ansikt, skjegg og hode", finish: "kan gi svært glatt resultat", sensitive: "lukket kam er mildere enn aggressive høvler" },
+    id: "muhle-r89",
+    brand: "Mühle",
+    model: "R89",
+    category: "hovel",
+    productType: "Sikkerhetshøvel med lukket kam",
+    targets: ["face", "beard"],
+    finishes: ["smooth"],
+    method: "razor",
+    sensitivity: { level: "recommended", sourceId: "barbershop-muhle-r89" },
+    referencePrice: { amount: 489, checkedAt: "2026-09-23", sourceId: "barbershop-muhle-r89" },
+    bestFor: "Klassisk våtbarbering med god kontroll, også for nybegynnere.",
+    features: ["Lukket kam", "Forkrommet metall", "Vekt 70 g"],
+    reasons: {
+      target: "er en klassisk høvel for våtbarbering av ansiktet",
+      finish: "gir en grundig og glatt barbering",
+      sensitive: "lukket kam gir mindre risiko for kutt og irritasjon enn mer aggressive høvler",
+    },
+    specSourceIds: ["muehle-r89", "barbershop-muhle-r89"],
+    sources: [
+      {
+        id: "muehle-r89",
+        label: "Mühle – TRADITIONAL R 89",
+        url: "https://www.muehle-shaving.com/en/TRADITIONAL-Razor/R-89",
+        retrievedAt: "2026-09-23",
+        quote: "a thorough yet gentle shave",
+      },
+      {
+        id: "barbershop-muhle-r89",
+        label: "Barbershop.no – Mühle R89",
+        url: "https://www.barbershop.no/products/muhle-r89-tradisjonell-barberhovel",
+        retrievedAt: "2026-09-23",
+        quote:
+          "Hodet med lukket kam gir en trygg og presis barbering, noe som reduserer risikoen for kutt og irritasjon sammenlignet med mer aggressive modeller.",
+      },
+    ],
+    status: "active",
   },
   {
-    id: "skarv-t9", code: "T9", name: "Skarv T9", category: "skjeggtrimmer", type: "Skjeggtrimmer",
-    targets: ["beard", "face"], finishes: ["trim"], methods: ["electric", "unsure"], sensitive: true, budget: "mid", price: 990,
-    best: "Jevn skjegglengde og presise kanter fra 0,5 til 18 mm.", features: ["20 lengder", "Presisjonshode", "90 min batteri"],
-    reasons: { target: "er bygget for skjegg og detaljer", finish: "gir jevn trimming uten å barbere helt ned", sensitive: "avrundede tenner er skånsomme mot huden" },
+    id: "philips-bt5780-15",
+    brand: "Philips",
+    model: "Beard Trimmer 5000 BT5780/15",
+    category: "skjeggtrimmer",
+    productType: "Skjeggtrimmer",
+    targets: ["beard", "face"],
+    finishes: ["trim"],
+    method: "electric",
+    sensitivity: { level: "neutral" },
+    referencePrice: { amount: 644, checkedAt: "2026-09-23", sourceId: "proshop-philips-bt5780-15" },
+    bestFor: "Jevn skjegglengde og presis forming av skjegget.",
+    features: ["40 lengder i 0,2 mm-trinn", "BeardSense", "Hårsamler", "Opptil 100 min drift"],
+    reasons: {
+      target: "er laget for å forme og vedlikeholde skjegget",
+      finish: "trimmer i presise trinn på 0,2 mm",
+    },
+    specSourceIds: ["philips-no-bt5780-15", "proshop-philips-bt5780-15"],
+    sources: [
+      {
+        id: "philips-no-bt5780-15",
+        label: "Philips – Beard Trimmer 5000 BT5780/15",
+        url: "https://www.philips.no/c-p/BT5780_15/skjegg-trimmer-5000-skjegg-trimmer",
+        retrievedAt: "2026-09-23",
+        quote: "40 lengdeinnstillinger i trinn på 0,2 mm",
+      },
+      {
+        id: "proshop-philips-bt5780-15",
+        label: "Proshop – Philips 5000 Series BT5780",
+        url: "https://www.proshop.no/Haartrimmer/Philips-Skjeggtrimmer-5000-Series-BT5780-deep-black/3425291",
+        retrievedAt: "2026-09-23",
+        quote: "Opptil 100 minutters trådløs bruk",
+      },
+    ],
+    status: "active",
   },
   {
-    id: "polar-edge-mini", code: "PE", name: "Polar Edge Mini", category: "skjeggtrimmer", type: "Kompakt detaljtrimmer",
-    targets: ["beard", "face", "body"], finishes: ["trim"], methods: ["electric", "unsure"], sensitive: false, budget: "low", price: 449,
-    best: "Enkel vedlikeholdstrimming og skarpe linjer på liten plass.", features: ["Smalt skjær", "USB-lading", "Tre kammer"],
-    reasons: { target: "er praktisk til små områder og konturer", finish: "holder hår kort uten helt glatt barbering", sensitive: "bør brukes rolig på ekstra følsomme områder" },
+    id: "philips-oneblade-360-qp2734-23",
+    brand: "Philips",
+    model: "OneBlade 360 Ansikt QP2734/23",
+    category: "skjeggtrimmer",
+    productType: "Hybridtrimmer",
+    targets: ["face", "beard"],
+    finishes: ["trim"],
+    method: "electric",
+    sensitivity: { level: "recommended", sourceId: "philips-no-qp2734-23" },
+    referencePrice: { amount: 619, checkedAt: "2026-09-23", sourceId: "philips-no-qp2734-23" },
+    bestFor: "Rimelig trimming av stubb og kanter i ansiktet.",
+    features: ["Trimmer, lager kanter og barberer", "5-i-1 justerbar kam", "Våt og tørr bruk"],
+    reasons: {
+      target: "trimmer og lager rene kanter i ansiktet",
+      finish: "holder stubben kort, men barberer ikke helt tett",
+      sensitive: "Philips oppgir at den ikke barberer så tett at huden blir irritert",
+    },
+    specSourceIds: ["philips-no-qp2734-23", "proshop-philips-qp2734-23"],
+    sources: [
+      {
+        id: "philips-no-qp2734-23",
+        label: "Philips – OneBlade 360 Ansikt QP2734/23",
+        url: "https://www.philips.no/shop/NO_Mastercard/personlig-hygiene/oneblade-til-a-trimme-kante-og-barbere/oneblade-360-ansikt/p/QP2734_23",
+        retrievedAt: "2026-09-23",
+        quote: "OneBlade barberer ikke så tett som et vanlig knivblad, så huden ikke blir irritert.",
+      },
+      {
+        id: "proshop-philips-qp2734-23",
+        label: "Proshop – Philips OneBlade 360 QP2734",
+        url: "https://www.proshop.no/Haartrimmer/Philips-OneBlade-360-QP2734-trimmer-light-greendark-grey/3437089",
+        retrievedAt: "2026-09-23",
+      },
+    ],
+    status: "active",
   },
   {
-    id: "boreal-head-x", code: "HX", name: "Boreal Head X", category: "hode", type: "Hodebarbermaskin",
-    targets: ["head"], finishes: ["smooth"], methods: ["electric", "unsure"], sensitive: true, budget: "high", price: 2190,
-    best: "Rask og jevn hodebarbering med godt grep rundt bakhodet.", features: ["Fem fleksible hoder", "Håndflategrep", "Våt og tørr"],
-    reasons: { target: "er formet for hele hodebunnen", finish: "gir et jevnt, glatt resultat", sensitive: "fordeler trykket over fem fleksible hoder" },
+    id: "remington-xr1600",
+    brand: "Remington",
+    model: "RX7 Ultimate Series XR1600",
+    category: "hode",
+    productType: "Hodebarbermaskin",
+    targets: ["head"],
+    finishes: ["smooth"],
+    method: "electric",
+    sensitivity: { level: "neutral" },
+    referencePrice: { amount: 874, checkedAt: "2026-09-23", sourceId: "proshop-remington-xr1600" },
+    bestFor: "Rask barbering av hele hodet, også der håret vokser tett.",
+    features: ["5 skjærehoder", "Turbofunksjon", "Popup-trimmer", "Opptil 60 min drift"],
+    reasons: {
+      target: "er laget for barbering av hodet",
+      finish: "barberer håret ned til 0,2 mm",
+    },
+    specSourceIds: ["remington-eu-xr1600", "proshop-remington-xr1600"],
+    sources: [
+      {
+        id: "remington-eu-xr1600",
+        label: "Remington – RX7 Ultimate Series Head Shaver",
+        url: "https://eu.remington-europe.com/products/rx7-ultimate-head-shaver-XR1600",
+        retrievedAt: "2026-09-23",
+        quote: "shave hair to as short as 0.2mm",
+      },
+      {
+        id: "proshop-remington-xr1600",
+        label: "Proshop – Remington RX7 XR1600",
+        url: "https://www.proshop.no/Barbermaskin/REMINGTON-Barbermaskin-RX7-Ultimate-Series-Head-Shaver-XR1600/3178671",
+        retrievedAt: "2026-09-23",
+        quote: "RX7 har alt du trenger for å oppnå enkel og komfortabel barbering av hodet.",
+      },
+    ],
+    status: "active",
   },
   {
-    id: "kyst-head-flex", code: "HF", name: "Kyst Head Flex", category: "hode", type: "Allround hode- og hårtrimmer",
-    targets: ["head", "beard"], finishes: ["trim"], methods: ["electric", "unsure"], sensitive: false, budget: "mid", price: 1290,
-    best: "Deg som veksler mellom kort hår, hodebarbering og skjegg.", features: ["8 kammer", "Bredt skjær", "75 min batteri"],
-    reasons: { target: "dekker både hode og skjegg", finish: "gir fleksibel og jevn kort trimming", sensitive: "fungerer best med lett hånd" },
+    id: "remington-xr1500",
+    brand: "Remington",
+    model: "RX5 Ultimate Series XR1500",
+    category: "hode",
+    productType: "Hodebarbermaskin",
+    targets: ["head"],
+    finishes: ["smooth"],
+    method: "electric",
+    sensitivity: { level: "neutral" },
+    referencePrice: { amount: 463, checkedAt: "2026-09-23", sourceId: "proshop-remington-xr1500" },
+    bestFor: "Rimelig og enkel barbering av hele hodet.",
+    features: ["5 skjærehoder", "100 % vanntett", "Opptil 50 min drift"],
+    reasons: {
+      target: "er laget for barbering av hele hodet",
+      finish: "gir hudnær barbering ned til 0,2 mm",
+    },
+    specSourceIds: ["remington-eu-xr1500", "proshop-remington-xr1500"],
+    sources: [
+      {
+        id: "remington-eu-xr1500",
+        label: "Remington – Ultimate Series RX5 Head Shaver",
+        url: "https://eu.remington-europe.com/products/ultimate-series-rx5-head-shaver",
+        retrievedAt: "2026-09-23",
+        quote: "0.2mm skin-close results",
+      },
+      {
+        id: "proshop-remington-xr1500",
+        label: "Proshop – Remington RX5 XR1500",
+        url: "https://www.proshop.no/Haartrimmer/REMINGTON-Haarklipper-Ultimate-Series-RX5-XR1500/3010207",
+        retrievedAt: "2026-09-23",
+        quote: "Hodebarbermaskin, trådløs, 5 skjærehoder, kutter ned til 0,2 mm",
+      },
+    ],
+    status: "active",
   },
   {
-    id: "roam-body-b4", code: "B4", name: "Roam Body B4", category: "kropp", type: "Kroppstrimmer",
-    targets: ["body"], finishes: ["trim", "smooth"], methods: ["electric", "unsure"], sensitive: true, budget: "mid", price: 890,
-    best: "Trygg trimming av bryst, rygg og sensitive kroppsområder.", features: ["Hudbeskytter", "Dusjsikker", "Toveis skjær"],
-    reasons: { target: "er utviklet for kroppens ulike områder", finish: "kan både trimme og barbere kort", sensitive: "hudbeskytteren reduserer direkte kontakt med skjæret" },
+    id: "remington-mb7050",
+    brand: "Remington",
+    model: "T-Series Hair and Beard Kit MB7050",
+    category: "hode",
+    productType: "Hår- og skjeggtrimmer",
+    targets: ["head", "beard"],
+    finishes: ["trim"],
+    method: "electric",
+    sensitivity: { level: "neutral" },
+    referencePrice: { amount: 710, checkedAt: "2026-09-23", sourceId: "proshop-remington-mb7050" },
+    bestFor: "Kort hår og trimmet skjegg med samme maskin.",
+    features: ["38 mm T-blad", "Kammer fra 1,5 til 25 mm", "Folieshaver-tilbehør", "100 % vanntett"],
+    reasons: {
+      target: "klipper både hår og skjegg",
+      finish: "trimmer i lengder fra 1,5 til 25 mm",
+    },
+    specSourceIds: ["remington-uk-mb7050", "proshop-remington-mb7050"],
+    sources: [
+      {
+        id: "remington-uk-mb7050",
+        label: "Remington – T-Series Hair and Beard Kit MB7050",
+        url: "https://uk.remington-europe.com/t-series-hair-and-beard-kit-mb7050-uk",
+        retrievedAt: "2026-09-23",
+        quote: "Hair and beard trimmer with premium T-Blade™ for professional results on all hair types",
+      },
+      {
+        id: "proshop-remington-mb7050",
+        label: "Proshop – Remington MB7050",
+        url: "https://www.proshop.no/Haartrimmer/REMINGTON-Haarklipper-MB7050-T-Series-Hair-Beard-Kit/3010209",
+        retrievedAt: "2026-09-23",
+      },
+    ],
+    status: "active",
   },
   {
-    id: "myk-hud-kit", code: "MH", name: "Myk Hud Kit", category: "hovel", type: "Barberhøvel med hudbeskyttelse",
-    targets: ["face", "beard", "body"], finishes: ["smooth"], methods: ["razor", "unsure"], sensitive: true, budget: "low", price: 349,
-    best: "Rimelig og kontrollert høvelbarbering for lettirritert hud.", features: ["Færre blader", "Bevegelig hode", "Grepsvennlig skaft"],
-    reasons: { target: "fungerer til ansikt, skjegg og kropp", finish: "gir glatt resultat med få passeringer", sensitive: "færre blader kan bety mindre friksjon" },
+    id: "philips-mg7940-15",
+    brand: "Philips",
+    model: "All-in-One Trimmer Series 7000 MG7940/15",
+    category: "kropp",
+    productType: "Multitrimmer",
+    targets: ["face", "beard", "head", "body"],
+    finishes: ["trim"],
+    method: "electric",
+    sensitivity: { level: "neutral" },
+    referencePrice: { amount: 881, checkedAt: "2026-09-23", sourceId: "proshop-philips-mg7940-15" },
+    bestFor: "Én trimmer til skjegg, hår og kropp.",
+    features: ["15 verktøy", "22 lengder fra 0,5 til 16 mm", "BeardSense", "Opptil 120 min drift"],
+    reasons: {
+      target: "har tilbehør for ansikt, hode og kropp",
+      finish: "trimmer i 22 lengder fra 0,5 til 16 mm",
+    },
+    specSourceIds: ["philips-uk-mg7940-15", "proshop-philips-mg7940-15"],
+    sources: [
+      {
+        id: "philips-uk-mg7940-15",
+        label: "Philips – All-in-One Trimmer Series 7000 MG7940/15",
+        url: "https://www.philips.co.uk/c-p/MG7940_15/all-in-one-trimmer-series-7000",
+        retrievedAt: "2026-09-23",
+        quote: "15-in-1: face, head & body",
+      },
+      {
+        id: "proshop-philips-mg7940-15",
+        label: "Proshop – Philips Series 7000 MG7940/15",
+        url: "https://www.proshop.no/Haartrimmer/Philips-Kroppstrimmer-Series-7000-MG794015/3236186",
+        retrievedAt: "2026-09-23",
+        quote: "22 lengdeinnstillinger fra 0,5 til 16 mm i presise trinn på opptil 0,2 mm",
+      },
+    ],
+    status: "active",
   },
   {
-    id: "allround-a6", code: "A6", name: "Allround A6", category: "kropp", type: "Multitrimmer",
-    targets: ["face", "beard", "head", "body"], finishes: ["trim"], methods: ["electric", "unsure"], sensitive: true, budget: "mid", price: 1390,
-    best: "Én maskin til skjegg, hår og kropp – først og fremst trimming.", features: ["12 tilbehør", "Selvslipende skjær", "100 min batteri"],
-    reasons: { target: "dekker flere bruksområder", finish: "er sterkest på trimming og vedlikehold", sensitive: "har egne kammer for skånsom kroppstrimming" },
+    id: "philips-bg5475-15",
+    brand: "Philips",
+    model: "Body Groomer 5000 Series BG5475/15",
+    category: "kropp",
+    productType: "Kroppstrimmer med barberhode",
+    targets: ["body"],
+    finishes: ["trim", "smooth"],
+    method: "electric",
+    sensitivity: { level: "recommended", sourceId: "philips-uk-bg5475-15" },
+    referencePrice: { amount: 746, checkedAt: "2026-09-23", sourceId: "proshop-philips-bg5475-15" },
+    bestFor: "Trimming og kort barbering av hele kroppen, også intimområdet.",
+    features: ["Trimmer og barberer", "3 lengdeinnstillinger", "100 % dusjsikker"],
+    reasons: {
+      target: "er laget for hele kroppen, også intimområdet",
+      finish: "både trimmer og barberer kort",
+      sensitive: "Philips oppgir at barbersystemet er skånsomt mot huden",
+    },
+    specSourceIds: ["philips-uk-bg5475-15", "proshop-philips-bg5475-15"],
+    sources: [
+      {
+        id: "philips-uk-bg5475-15",
+        label: "Philips – Body Groomer 5000 Series BG5475/15",
+        url: "https://www.philips.co.uk/c-p/BG5475_15/body-groomer-5000-series-with-triple-protect-shave-system",
+        retrievedAt: "2026-09-23",
+        quote: "Gentle on skin, full-body grooming",
+      },
+      {
+        id: "proshop-philips-bg5475-15",
+        label: "Proshop – Philips 5000 Series BG5475",
+        url: "https://www.proshop.no/Haartrimmer/Philips-5000-Series-BG5475-trimmer-black/3418567",
+        retrievedAt: "2026-09-23",
+      },
+    ],
+    status: "active",
+  },
+  {
+    id: "muhle-companion",
+    brand: "Mühle",
+    model: "Companion",
+    category: "hovel",
+    productType: "Sikkerhetshøvel for kropp og ansikt",
+    targets: ["face", "beard", "body"],
+    finishes: ["smooth"],
+    method: "razor",
+    sensitivity: { level: "recommended", sourceId: "muehle-companion-safety" },
+    referencePrice: { amount: 499, checkedAt: "2026-09-23", sourceId: "barbershop-muhle-companion" },
+    bestFor: "Glatt barbering av legger, bryst, armhuler og intimområdet.",
+    features: ["Lukket kam", "Lengre skaft", "Vekt 88 g"],
+    reasons: {
+      target: "er laget for ansikt og kropp, med lengre skaft for legger, bryst og armhuler",
+      finish: "gir en glatt barbering",
+      sensitive: "Mühle oppgir at hodet gir betydelig mindre risiko for kutt",
+    },
+    specSourceIds: ["muehle-companion-use", "barbershop-muhle-companion"],
+    sources: [
+      {
+        id: "muehle-companion-use",
+        label: "Mühle – COMPANION",
+        url: "https://www.muehle-shaving.com/en/COMPANION-Razor/R-COM-04",
+        retrievedAt: "2026-09-23",
+        quote: "Designed for shaving face and body",
+      },
+      {
+        id: "muehle-companion-safety",
+        label: "Mühle – COMPANION",
+        url: "https://www.muehle-shaving.com/en/COMPANION-Razor/R-COM-04",
+        retrievedAt: "2026-09-23",
+        quote: "significantly reduce the risk of cuts when shaving the body",
+      },
+      {
+        id: "barbershop-muhle-companion",
+        label: "Barbershop.no – Mühle Companion",
+        url: "https://www.barbershop.no/products/muhle-companion-barberhovel",
+        retrievedAt: "2026-09-23",
+      },
+    ],
+    status: "active",
   },
 ];
+
+/** Produkter som vises i velger og katalog. */
+export const activeProducts: readonly Product[] = products.filter((product) => product.status === "active");
+
+export function productName(product: Pick<Product, "brand" | "model">): string {
+  return `${product.brand} ${product.model}`;
+}

@@ -14,7 +14,7 @@ export function MethodSection() {
           <div className="method-copy">
             <span className="eyebrow">Slik velger vi</span>
             <h2>Behov først. Produkt etterpå.</h2>
-            <p>Resultatet styres av svarene dine – ikke av hvilken demo-pris som er høyest.</p>
+            <p>Resultatet styres av svarene dine og av egenskapene produsentene selv dokumenterer.</p>
             <Link className="method-link" href="/slik-velger-vi">
               Les hvordan velgeren vekter svarene <span aria-hidden="true">→</span>
             </Link>

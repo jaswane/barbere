@@ -2,9 +2,11 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { filterLabels, type FilterKey } from "@/data/catalogue";
-import { filteredProducts, formatPrice, isFilterKey } from "@/lib/catalogue";
+import { productName } from "@/data/products";
+import { filteredProducts, isFilterKey } from "@/lib/catalogue";
+import type { OfferView } from "@/lib/offers";
 import { registerModelContextTool } from "@/lib/webmcp";
-import { DemoLink } from "./DemoToast";
+import { StoreLink } from "./StoreLink";
 
 interface CatalogueFilterState {
   filter: FilterKey;
@@ -43,7 +45,7 @@ export function CategoryLink({ filter, children }: { filter: FilterKey; children
   );
 }
 
-export function ProductBrowser() {
+export function ProductBrowser({ offers }: { offers: Record<string, OfferView> }) {
   const { filter, setFilter } = useCatalogueFilter();
   const visible = filteredProducts(filter);
 
@@ -64,7 +66,7 @@ export function ProductBrowser() {
           const category = input?.category;
           if (!isFilterKey(category)) throw new Error("Ugyldig kategori");
           setFilter(category, true);
-          return { category, products: filteredProducts(category).map((product) => product.name) };
+          return { category, products: filteredProducts(category).map((product) => productName(product)) };
         },
       }),
     [setFilter],
@@ -72,7 +74,7 @@ export function ProductBrowser() {
 
   return (
     <>
-      <div className="filters" id="filters" aria-label="Filtrer demo-produkter">
+      <div className="filters" id="filters" aria-label="Filtrer produkter">
         {(Object.entries(filterLabels) as Array<[FilterKey, string]>).map(([key, label]) => (
           <button
             key={key}
@@ -87,38 +89,42 @@ export function ProductBrowser() {
         ))}
       </div>
       <div className="product-grid" id="product-grid">
-        {visible.map((product) => (
-          <article className="product-card" key={product.id}>
-            <div className="product-visual" data-code={product.code}>
-              <span>Plass for produktbilde</span>
-            </div>
-            <div className="product-body">
-              <span className="product-type">{product.type}</span>
-              <h3>{product.name}</h3>
-              <p className="best-for">
-                <strong>Passer best for:</strong> {product.best}
-              </p>
-              <div className="feature-list">
-                {product.features.map((feature) => (
-                  <span className="feature" key={feature}>
-                    {feature}
-                  </span>
-                ))}
+        {visible.map((product) => {
+          const offer = offers[product.id];
+          return (
+            <article className="product-card" key={product.id}>
+              <div className="product-visual" aria-hidden="true">
+                <span className="product-visual-brand">{product.brand}</span>
+                <span className="product-visual-model">{product.model}</span>
               </div>
-              <div className="product-foot">
-                <div className="price-row">
-                  <div>
-                    <span className="price-label">Priseksempel</span>
-                    <span className="price">{formatPrice(product.price)}</span>
-                  </div>
-                  <span className="price-label">Demo</span>
+              <div className="product-body">
+                <span className="product-type">{product.productType}</span>
+                <h3>{productName(product)}</h3>
+                <p className="best-for">
+                  <strong>Passer best for:</strong> {product.bestFor}
+                </p>
+                <div className="feature-list">
+                  {product.features.map((feature) => (
+                    <span className="feature" key={feature}>
+                      {feature}
+                    </span>
+                  ))}
                 </div>
-                <DemoLink product={product.name} />
-                <div className="commercial-note">Demo – kommersiell lenke</div>
+                <div className="product-foot">
+                  {offer?.priceText ? (
+                    <div className="price-row">
+                      <div>
+                        <span className="price">{offer.priceText}</span>
+                        <span className="price-label">{offer.checkedText}</span>
+                      </div>
+                    </div>
+                  ) : null}
+                  {offer ? <StoreLink offer={offer} /> : null}
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </>
   );

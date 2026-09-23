@@ -33,6 +33,14 @@ export default function PrivacyPage() {
       </section>
 
       <section className="info-section">
+        <h2>Butikklenker</h2>
+        <p>
+          Knappene «Se pris hos …» åpner butikkens side i en ny fane. Barbere.no registrerer ikke klikkene, men butikken
+          behandler besøket etter sine egne personvernregler.
+        </p>
+      </section>
+
+      <section className="info-section">
         <h2>Hosting</h2>
         <p>
           Nettstedet hostes hos Vercel. For å levere og drifte siden kan Vercels hosting- og sikkerhetsinfrastruktur behandle

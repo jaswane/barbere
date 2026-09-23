@@ -21,8 +21,8 @@ export function SiteFooter() {
           </nav>
         </div>
         <p>
-          Interaktiv prototype med fiktive produkter og priser. Barbere.no har i denne demoen ingen oppgitte samarbeid med
-          butikker eller merkevarer.
+          Barbere.no har ingen samarbeid med butikker eller merkevarer. Prisene er sjekket for hånd og oppdateres ikke
+          automatisk.
         </p>
       </div>
     </footer>
