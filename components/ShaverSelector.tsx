@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import { optionValues, questions, type Answers, type QuestionKey } from "@/data/questions";
@@ -75,7 +76,7 @@ export function ShaverSelector() {
   return (
     <div className="finder" aria-labelledby="finder-heading">
       <div className="finder-top">
-        <div className="finder-title" id="finder-heading">Finn riktig barbermaskin</div>
+        <div className="finder-title" id="finder-heading">Finn riktig barberingsprodukt</div>
         <div className="step-label" id="step-label">
           {result ? "Resultat" : `${step + 1} av ${questions.length}`}
         </div>
@@ -170,9 +171,14 @@ export function ShaverSelector() {
               </div>
             ))}
           </div>
-          <button className="restart" id="restart" type="button" onClick={restart}>
-            Start velgeren på nytt
-          </button>
+          <div className="result-links">
+            <button className="restart" id="restart" type="button" onClick={restart}>
+              Start velgeren på nytt
+            </button>
+            <Link className="result-method-link" href="/slik-velger-vi">
+              Slik velger vi
+            </Link>
+          </div>
         </div>
       </div>
     </div>

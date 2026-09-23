@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ProductBrowser } from "./CatalogueFilter";
 
 export function ProductCatalogue() {
@@ -13,7 +14,8 @@ export function ProductCatalogue() {
         </div>
         <ProductBrowser />
         <p className="commercial-note">
-          Demo – fremtidige butikklenker kan være annonselenker som gir Barbere.no provisjon, uten ekstra kostnad for deg.
+          Demo – fremtidige butikklenker kan være annonselenker som gir Barbere.no provisjon, uten ekstra kostnad for deg.{" "}
+          <Link href="/slik-velger-vi#annonselenker">Om annonselenker</Link>
         </p>
       </div>
     </section>

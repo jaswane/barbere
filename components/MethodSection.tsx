@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const methodPoints = [
   { title: "Riktig bruksområde", text: "Ansikt, skjegg, hode eller kropp veier tyngst." },
   { title: "Hud og resultat", text: "Glatthet balanseres mot skånsom behandling." },
@@ -13,6 +15,9 @@ export function MethodSection() {
             <span className="eyebrow">Slik velger vi</span>
             <h2>Behov først. Produkt etterpå.</h2>
             <p>Resultatet styres av svarene dine – ikke av hvilken demo-pris som er høyest.</p>
+            <Link className="method-link" href="/slik-velger-vi">
+              Les hvordan velgeren vekter svarene <span aria-hidden="true">→</span>
+            </Link>
             <figure className="method-image">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

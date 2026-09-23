@@ -28,7 +28,10 @@ const fontVariables = {
 } as CSSProperties;
 
 export const metadata: Metadata = {
-  title: "Barbere.no – finn riktig barberingsprodukt",
+  title: {
+    default: "Barbere.no – finn riktig barberingsprodukt",
+    template: "%s – Barbere.no",
+  },
   description: "Svar på fem korte spørsmål og finn barberingsproduktet som passer behovet, huden og budsjettet ditt.",
 };
 
