@@ -4,6 +4,7 @@ import { InfoPage } from "@/components/InfoPage";
 export const metadata: Metadata = {
   title: "Personvern",
   description: "Hvilke opplysninger Barbere.no behandler når du bruker siden, og hva siden ikke samler inn.",
+  alternates: { canonical: "/personvern" },
 };
 
 export default function PrivacyPage() {

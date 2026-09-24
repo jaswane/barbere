@@ -97,16 +97,22 @@ Det finnes **ingen kategorisider** og **ingen produktdetaljsider** ennå. Katego
 
 ## 7. SEO og domene
 
-**STATUS:** barbere.no er ikke koblet. Nåværende adresse er https://barbere-oe5x.vercel.app.
+**STATUS: FERDIG (domenesprint 24.09.2026).**
 
-**Midlertidig noindex:** Fram til lansering sender hele nettstedet `X-Robots-Tag: noindex, nofollow` (satt i `next.config.ts`). Regelen **må fjernes i domenesprinten**.
+- **Domene og HTTPS:** `https://barbere.no` er primærdomenet, hostet hos Vercel. `http://` redirecter med 308 til `https://`.
+- **www:** `https://www.barbere.no` redirecter til apex i ett steg, uten loop. Redirecten er satt opp i Vercel og bruker i dag 307. 308 (permanent) er å foretrekke og endres under Domains i Vercel.
+- **Google Search Console:** Eiendommen er koblet. Sitemap sendes inn manuelt: `https://barbere.no/sitemap.xml`.
+- **`metadataBase`:** `https://barbere.no`, satt i `app/layout.tsx`.
+- **Canonical:** Hver indekserbar side setter sin egen canonical på apex (`/`, `/slik-velger-vi`, `/om`, `/personvern`). Canonical settes per side og ikke i layout, slik at 404 ikke arver forsidens canonical.
+- **`app/robots.ts`:** Tillater alt og peker til sitemapen. `/go/` blokkeres ikke i robots, fordi en blokkert side ikke kan lese `noindex`.
+- **`app/sitemap.ts`:** De fire sidene over, som absolutte apex-URL-er. `lastModified` er utelatt fordi vi ikke har en pålitelig dato per side.
+- **Midlertidig noindex er fjernet** fra `next.config.ts`. 404 har fortsatt `noindex`, og det setter Next.js selv.
 
-Domenesprinten skal samtidig aktivere:
-- barbere.no som apex og primærdomene (`https://barbere.no`), med `www` som redirecter til apex.
-- `metadataBase`, canonical, `robots.ts`, `sitemap.ts` og Google Search Console.
-- `/go/` skal ikke ligge i sitemap og skal ha `noindex`.
+**Gjenstår:**
+- apple-icon og Open Graph-bilde (se launch gates). Metadata bruker ingen gamle hoster.
+- `/go/` skal ikke ligge i sitemapen og skal ha `noindex` når affiliate aktiveres (punkt 5).
 
-DNS ligger hos Domeneshop. Vercels anbefalte records og de gamle A/AAAA-recordene som må fjernes, er dokumentert i domene-preflighten.
+DNS ligger hos Domeneshop: A-record til Vercel for apex og CNAME for `www`. De gamle A/AAAA-recordene er fjernet.
 
 ## 8. Analytics
 
@@ -140,7 +146,7 @@ Forslag til rutine:
 - **Kvartalsvis:** gå gjennom produktsettet og selector-resultatene (snapshot-diff og menneskelige scenarier).
 - **Senere:** bruk GSC og GA4 til å prioritere nye produkter og sider.
 
-## 11. Launch gates (før barbere.no kobles)
+## 11. Launch gates
 
 | Gate | Status |
 |---|---|
@@ -148,10 +154,11 @@ Forslag til rutine:
 | Produktbilder eller godkjent plassholder-strategi | Mangler beslutning |
 | Affiliate aktivert, eller eksplisitt beslutning om lansering uten | Mangler beslutning |
 | Juridisk avsender ferdig | Mangler |
-| `metadataBase`, canonical, sitemap, robots | Venter på domenesprint |
-| Google Search Console | Venter på domenesprint |
+| `metadataBase`, canonical, sitemap, robots | Ferdig (domenesprint) |
+| Midlertidig noindex fjernet | Ferdig (domenesprint) |
+| Google Search Console | Ferdig: koblet, sitemap sendes inn manuelt |
 | Analyse og samtykke vurdert | Mangler beslutning |
 | Favicon, apple-icon og Open Graph kontrollert | Delvis: favicon finnes, apple-icon og OG mangler |
 | Mobil-QA på ekte enheter | Mangler |
 | build, lint, typecheck og test grønt | Ferdig |
-| Domene og HTTPS | Venter på domenesprint |
+| Domene og HTTPS | Ferdig. www bruker 307, bør endres til 308 i Vercel |

@@ -5,6 +5,7 @@ import { InfoPage } from "@/components/InfoPage";
 export const metadata: Metadata = {
   title: { absolute: "Om Barbere.no" },
   description: "Hva Barbere.no er, hvordan siden velger produkter, og hvordan du kontakter oss.",
+  alternates: { canonical: "/om" },
 };
 
 export default function AboutPage() {

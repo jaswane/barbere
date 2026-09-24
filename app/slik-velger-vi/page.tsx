@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Slik velger vi",
   description:
     "Hvordan Barbere.no bruker svarene om område, resultat, hud, metode og budsjett til å foreslå ett produkt og to alternativer.",
+  alternates: { canonical: "/slik-velger-vi" },
 };
 
 const steps = [

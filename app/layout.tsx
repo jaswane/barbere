@@ -28,6 +28,7 @@ const fontVariables = {
 } as CSSProperties;
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://barbere.no"),
   title: {
     default: "Barbere.no – finn riktig barberingsprodukt",
     template: "%s – Barbere.no",
