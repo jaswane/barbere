@@ -27,6 +27,13 @@ test("hvert produkt har dokumenterte egenskaper", () => {
       if (!source?.quote) problems.push(`${product.id}: ${product.sensitivity.level} uten kilde med sitat`);
       if (!product.reasons.sensitive) problems.push(`${product.id}: ${product.sensitivity.level} uten begrunnelsestekst`);
     }
+    for (const target of product.primaryTargets) {
+      if (!product.targets.includes(target)) problems.push(`${product.id}: primærområdet ${target} mangler i targets`);
+    }
+    if (product.primaryTargets.length > 0) {
+      const source = product.sources.find((item) => item.id === product.primaryTargetsSourceId);
+      if (!source?.quote) problems.push(`${product.id}: primærområder uten kilde med sitat`);
+    }
     if (!sourceIds.has(product.referencePrice.sourceId)) problems.push(`${product.id}: referansepris uten kilde`);
     if (!validDate(product.referencePrice.checkedAt)) problems.push(`${product.id}: ugyldig dato for referansepris`);
     for (const source of product.sources) {

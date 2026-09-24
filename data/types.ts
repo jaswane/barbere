@@ -36,6 +36,13 @@ export interface Product {
   reasons: { target: string; finish: string; sensitive?: string };
   /** Kilder som dokumenterer bruksområder (`targets`) og resultat (`finishes`). */
   specSourceIds: string[];
+  /**
+   * Områdene produsenten tydelig har laget produktet for. Tomt for hybrid- og alt-i-ett-produkter.
+   * Brukes bare til å skille produkter som ellers står helt likt i velgeren.
+   */
+  primaryTargets: Target[];
+  /** Kilde med sitat som viser primærområdet. Påkrevd når `primaryTargets` ikke er tomt. */
+  primaryTargetsSourceId?: string;
   sources: SourceRef[];
   image?: { src: string; alt: string; width: number; height: number; credit?: string };
   status: "active" | "retired";

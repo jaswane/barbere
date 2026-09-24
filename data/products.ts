@@ -12,6 +12,8 @@ export type { Product, ProductCategory, ProductMethod } from "./types.ts";
  * - `sensitivity.level` er `recommended` bare når kilden sier at produktet er skånsomt eller
  *   reduserer irritasjon. Uten slik påstand er nivået `neutral`.
  * - `referencePrice` er ordinær observert pris, ikke kampanjepris.
+ * - `primaryTargets` er områdene produsenten tydelig har laget produktet for. Hybrid- og
+ *   alt-i-ett-produkter (OneBlade, MG7940) har ingen primærområder.
  */
 export const products: readonly Product[] = [
   {
@@ -33,6 +35,8 @@ export const products: readonly Product[] = [
       sensitive: "Braun oppgir at Series 5 er spesielt egnet for sensitiv hud",
     },
     specSourceIds: ["braun-nordics-series-5", "proshop-braun-series-5-52-b1000s"],
+    primaryTargets: ["face", "beard"],
+    primaryTargetsSourceId: "proshop-braun-series-5-52-b1000s",
     sources: [
       {
         id: "braun-nordics-series-5",
@@ -70,7 +74,16 @@ export const products: readonly Product[] = [
       sensitive: "Philips oppgir at belegget reduserer friksjonen mot huden for å minimere irritasjon",
     },
     specSourceIds: ["philips-uk-s7882-55", "proshop-philips-s7882-55"],
+    primaryTargets: ["face", "beard"],
+    primaryTargetsSourceId: "philips-uk-s7882-55-use",
     sources: [
+      {
+        id: "philips-uk-s7882-55-use",
+        label: "Philips – Shaver series 7000 S7882/55",
+        url: "https://www.philips.co.uk/c-p/S7882_55/shaver-series-7000-wet-dry-electric-shaver",
+        retrievedAt: "2026-09-24",
+        quote: "The Philips Series 7000 glides smoothly over your skin, while cutting each hair close - even on 3 day beards.",
+      },
       {
         id: "philips-uk-s7882-55",
         label: "Philips – Shaver series 7000 S7882/55",
@@ -108,7 +121,16 @@ export const products: readonly Product[] = [
       sensitive: "lukket kam gir mindre risiko for kutt og irritasjon enn mer aggressive høvler",
     },
     specSourceIds: ["muehle-r89", "barbershop-muhle-r89"],
+    primaryTargets: ["face", "beard"],
+    primaryTargetsSourceId: "muehle-r89-use",
     sources: [
+      {
+        id: "muehle-r89-use",
+        label: "Mühle – TRADITIONAL R 89",
+        url: "https://www.muehle-shaving.com/en/TRADITIONAL-Razor/R-89",
+        retrievedAt: "2026-09-24",
+        quote: "The finest contours and clear lines at the base of the beard are just the icing on the cake",
+      },
       {
         id: "muehle-r89",
         label: "Mühle – TRADITIONAL R 89",
@@ -145,7 +167,16 @@ export const products: readonly Product[] = [
       finish: "trimmer i presise trinn på 0,2 mm",
     },
     specSourceIds: ["philips-no-bt5780-15", "proshop-philips-bt5780-15"],
+    primaryTargets: ["beard"],
+    primaryTargetsSourceId: "philips-no-bt5780-15-name",
     sources: [
+      {
+        id: "philips-no-bt5780-15-name",
+        label: "Philips – Beard Trimmer 5000 BT5780/15",
+        url: "https://www.philips.no/c-p/BT5780_15/skjegg-trimmer-5000-skjegg-trimmer",
+        retrievedAt: "2026-09-24",
+        quote: "Beard Trimmer 5000 Skjeggtrimmer BT5780/15",
+      },
       {
         id: "philips-no-bt5780-15",
         label: "Philips – Beard Trimmer 5000 BT5780/15",
@@ -182,6 +213,7 @@ export const products: readonly Product[] = [
       sensitive: "Philips oppgir at bladet er laget for å kutte hår, ikke hud, med glidebelegg og avrundede tupper",
     },
     specSourceIds: ["philips-uk-qp2834-23", "philips-no-qp2834-23"],
+    primaryTargets: [],
     sources: [
       {
         id: "philips-uk-qp2834-23",
@@ -223,6 +255,8 @@ export const products: readonly Product[] = [
       finish: "barberer håret ned til 0,2 mm",
     },
     specSourceIds: ["remington-eu-xr1600", "proshop-remington-xr1600"],
+    primaryTargets: ["head"],
+    primaryTargetsSourceId: "proshop-remington-xr1600",
     sources: [
       {
         id: "remington-eu-xr1600",
@@ -259,6 +293,8 @@ export const products: readonly Product[] = [
       finish: "gir hudnær barbering ned til 0,2 mm",
     },
     specSourceIds: ["remington-eu-xr1500", "proshop-remington-xr1500"],
+    primaryTargets: ["head"],
+    primaryTargetsSourceId: "proshop-remington-xr1500",
     sources: [
       {
         id: "remington-eu-xr1500",
@@ -295,6 +331,8 @@ export const products: readonly Product[] = [
       finish: "trimmer i lengder fra 1,5 til 25 mm",
     },
     specSourceIds: ["remington-uk-mb7050", "proshop-remington-mb7050"],
+    primaryTargets: ["head", "beard"],
+    primaryTargetsSourceId: "remington-uk-mb7050",
     sources: [
       {
         id: "remington-uk-mb7050",
@@ -330,6 +368,7 @@ export const products: readonly Product[] = [
       finish: "trimmer i 22 lengder fra 0,5 til 16 mm",
     },
     specSourceIds: ["philips-uk-mg7940-15", "proshop-philips-mg7940-15"],
+    primaryTargets: [],
     sources: [
       {
         id: "philips-uk-mg7940-15",
@@ -367,6 +406,8 @@ export const products: readonly Product[] = [
       sensitive: "Philips beskriver den som hudvennlig, med barbersystem med trippel beskyttelse",
     },
     specSourceIds: ["philips-no-bg7470-15", "proshop-philips-bg7470-15"],
+    primaryTargets: ["body"],
+    primaryTargetsSourceId: "philips-no-bg7470-15",
     sources: [
       {
         id: "philips-no-bg7470-15",
@@ -404,7 +445,16 @@ export const products: readonly Product[] = [
       sensitive: "Mühle oppgir at hodet gir betydelig mindre risiko for kutt",
     },
     specSourceIds: ["muehle-companion-use", "barbershop-muhle-companion"],
+    primaryTargets: ["body"],
+    primaryTargetsSourceId: "muehle-companion-body",
     sources: [
+      {
+        id: "muehle-companion-body",
+        label: "Mühle – COMPANION",
+        url: "https://www.muehle-shaving.com/en/COMPANION-Razor/R-COM-04",
+        retrievedAt: "2026-09-24",
+        quote: "ideal for all body parts (legs, intimate area, armpits and chest)",
+      },
       {
         id: "muehle-companion-use",
         label: "Mühle – COMPANION",

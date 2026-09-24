@@ -63,9 +63,15 @@ export function scoreProduct(product: Product, answers: Answers): number {
   return targetScore + finishScore + methodScore + sensitiveScore + budgetEvaluation(product, answers.budget).score;
 }
 
+/** Om produsenten har laget produktet spesielt for området brukeren valgte. */
+export function isMadeFor(product: Product, answers: Answers): boolean {
+  return product.primaryTargets.includes(answers.target);
+}
+
 /**
- * Sorterer synkende på poeng. Ved likt poeng vinner lavest referansepris og deretter id, slik
- * at rekkefølgen alltid blir den samme. Når minst tre produkter støtter valgt område, vises bare disse.
+ * Sorterer synkende på poeng. Ved likt poeng vinner et produkt som er laget spesielt for valgt
+ * område, deretter lavest referansepris og til slutt id, slik at rekkefølgen alltid blir den samme.
+ * Når minst tre produkter støtter valgt område, vises bare disse.
  */
 export function rankProducts(answers: Answers, list: readonly Product[] = allProducts): RankedProduct[] {
   const ranked = list
@@ -73,6 +79,7 @@ export function rankProducts(answers: Answers, list: readonly Product[] = allPro
     .sort(
       (a, b) =>
         b.score - a.score ||
+        Number(isMadeFor(b.product, answers)) - Number(isMadeFor(a.product, answers)) ||
         a.product.referencePrice.amount - b.product.referencePrice.amount ||
         a.product.id.localeCompare(b.product.id),
     );

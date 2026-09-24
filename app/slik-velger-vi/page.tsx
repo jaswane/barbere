@@ -60,8 +60,10 @@ export default function MethodPage() {
           rimeligere. Da er minst ett av de to alternativene innenfor budsjettet, slik at du kan sammenligne.
         </p>
         <p>
-          Passer to produkter like godt, vinner det som vanligvis er rimeligst. Velgeren bruker den ordinære prisen, ikke dagens
-          kampanjepris, så et midlertidig tilbud endrer ikke anbefalingen.
+          Passer to produkter like godt, vinner det som er laget spesielt for området du valgte. En skjeggtrimmer går da foran
+          en trimmer for både ansikt og kropp når du skal trimme skjegget. Står de fortsatt likt, vinner det som vanligvis er
+          rimeligst. Velgeren bruker den ordinære prisen, ikke dagens kampanjepris, så et midlertidig tilbud endrer ikke
+          anbefalingen.
         </p>
       </section>
 

@@ -46,18 +46,18 @@
   ],
   "face|smooth|yes|unsure|mid": [
     "muhle-r89",
-    "muhle-companion",
-    "braun-series-5-52-b1000s"
+    "braun-series-5-52-b1000s",
+    "muhle-companion"
   ],
   "face|smooth|yes|unsure|high": [
     "muhle-r89",
-    "muhle-companion",
-    "braun-series-5-52-b1000s"
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55"
   ],
   "face|smooth|yes|unsure|flex": [
     "muhle-r89",
-    "muhle-companion",
-    "braun-series-5-52-b1000s"
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55"
   ],
   "face|smooth|no|electric|low": [
     "braun-series-5-52-b1000s",
@@ -106,18 +106,18 @@
   ],
   "face|smooth|no|unsure|mid": [
     "muhle-r89",
-    "muhle-companion",
-    "braun-series-5-52-b1000s"
+    "braun-series-5-52-b1000s",
+    "muhle-companion"
   ],
   "face|smooth|no|unsure|high": [
     "muhle-r89",
-    "muhle-companion",
-    "braun-series-5-52-b1000s"
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55"
   ],
   "face|smooth|no|unsure|flex": [
     "muhle-r89",
-    "muhle-companion",
-    "braun-series-5-52-b1000s"
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55"
   ],
   "face|trim|yes|electric|low": [
     "philips-oneblade-360-qp2834-23",
@@ -286,18 +286,18 @@
   ],
   "beard|smooth|yes|unsure|mid": [
     "muhle-r89",
-    "muhle-companion",
-    "braun-series-5-52-b1000s"
+    "braun-series-5-52-b1000s",
+    "muhle-companion"
   ],
   "beard|smooth|yes|unsure|high": [
     "muhle-r89",
-    "muhle-companion",
-    "braun-series-5-52-b1000s"
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55"
   ],
   "beard|smooth|yes|unsure|flex": [
     "muhle-r89",
-    "muhle-companion",
-    "braun-series-5-52-b1000s"
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55"
   ],
   "beard|smooth|no|electric|low": [
     "braun-series-5-52-b1000s",
@@ -346,18 +346,18 @@
   ],
   "beard|smooth|no|unsure|mid": [
     "muhle-r89",
-    "muhle-companion",
-    "braun-series-5-52-b1000s"
+    "braun-series-5-52-b1000s",
+    "muhle-companion"
   ],
   "beard|smooth|no|unsure|high": [
     "muhle-r89",
-    "muhle-companion",
-    "braun-series-5-52-b1000s"
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55"
   ],
   "beard|smooth|no|unsure|flex": [
     "muhle-r89",
-    "muhle-companion",
-    "braun-series-5-52-b1000s"
+    "braun-series-5-52-b1000s",
+    "philips-s7882-55"
   ],
   "beard|trim|yes|electric|low": [
     "philips-oneblade-360-qp2834-23",
@@ -420,64 +420,64 @@
     "remington-mb7050"
   ],
   "beard|trim|no|electric|low": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bt5780-15",
+    "philips-oneblade-360-qp2834-23",
     "remington-mb7050"
   ],
   "beard|trim|no|electric|mid": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bt5780-15",
-    "remington-mb7050"
+    "remington-mb7050",
+    "philips-oneblade-360-qp2834-23"
   ],
   "beard|trim|no|electric|high": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bt5780-15",
-    "remington-mb7050"
+    "remington-mb7050",
+    "philips-oneblade-360-qp2834-23"
   ],
   "beard|trim|no|electric|flex": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bt5780-15",
-    "remington-mb7050"
+    "remington-mb7050",
+    "philips-oneblade-360-qp2834-23"
   ],
   "beard|trim|no|razor|low": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bt5780-15",
+    "philips-oneblade-360-qp2834-23",
     "remington-mb7050"
   ],
   "beard|trim|no|razor|mid": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bt5780-15",
-    "remington-mb7050"
+    "remington-mb7050",
+    "philips-oneblade-360-qp2834-23"
   ],
   "beard|trim|no|razor|high": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bt5780-15",
-    "remington-mb7050"
+    "remington-mb7050",
+    "philips-oneblade-360-qp2834-23"
   ],
   "beard|trim|no|razor|flex": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bt5780-15",
-    "remington-mb7050"
+    "remington-mb7050",
+    "philips-oneblade-360-qp2834-23"
   ],
   "beard|trim|no|unsure|low": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bt5780-15",
+    "philips-oneblade-360-qp2834-23",
     "remington-mb7050"
   ],
   "beard|trim|no|unsure|mid": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bt5780-15",
-    "remington-mb7050"
+    "remington-mb7050",
+    "philips-oneblade-360-qp2834-23"
   ],
   "beard|trim|no|unsure|high": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bt5780-15",
-    "remington-mb7050"
+    "remington-mb7050",
+    "philips-oneblade-360-qp2834-23"
   ],
   "beard|trim|no|unsure|flex": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bt5780-15",
-    "remington-mb7050"
+    "remington-mb7050",
+    "philips-oneblade-360-qp2834-23"
   ],
   "head|smooth|yes|electric|low": [
     "remington-xr1500",
@@ -840,123 +840,123 @@
     "philips-oneblade-360-qp2834-23"
   ],
   "body|trim|yes|electric|low": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|yes|electric|mid": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|yes|electric|high": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|yes|electric|flex": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|yes|razor|low": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|yes|razor|mid": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|yes|razor|high": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|yes|razor|flex": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|yes|unsure|low": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|yes|unsure|mid": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|yes|unsure|high": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|yes|unsure|flex": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|no|electric|low": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|no|electric|mid": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|no|electric|high": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|no|electric|flex": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|no|razor|low": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|no|razor|mid": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|no|razor|high": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|no|razor|flex": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|no|unsure|low": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|no|unsure|mid": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|no|unsure|high": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ],
   "body|trim|no|unsure|flex": [
-    "philips-oneblade-360-qp2834-23",
     "philips-bg7470-15",
+    "philips-oneblade-360-qp2834-23",
     "philips-mg7940-15"
   ]
 }

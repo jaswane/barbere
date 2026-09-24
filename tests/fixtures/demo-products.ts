@@ -42,6 +42,7 @@ export const demoProducts: readonly Product[] = [
     "specSourceIds": [
       "demo"
     ],
+    "primaryTargets": [],
     "sources": [
       {
         "id": "demo",
@@ -89,6 +90,7 @@ export const demoProducts: readonly Product[] = [
     "specSourceIds": [
       "demo"
     ],
+    "primaryTargets": [],
     "sources": [
       {
         "id": "demo",
@@ -137,6 +139,7 @@ export const demoProducts: readonly Product[] = [
     "specSourceIds": [
       "demo"
     ],
+    "primaryTargets": [],
     "sources": [
       {
         "id": "demo",
@@ -184,6 +187,7 @@ export const demoProducts: readonly Product[] = [
     "specSourceIds": [
       "demo"
     ],
+    "primaryTargets": [],
     "sources": [
       {
         "id": "demo",
@@ -231,6 +235,7 @@ export const demoProducts: readonly Product[] = [
     "specSourceIds": [
       "demo"
     ],
+    "primaryTargets": [],
     "sources": [
       {
         "id": "demo",
@@ -277,6 +282,7 @@ export const demoProducts: readonly Product[] = [
     "specSourceIds": [
       "demo"
     ],
+    "primaryTargets": [],
     "sources": [
       {
         "id": "demo",
@@ -323,6 +329,7 @@ export const demoProducts: readonly Product[] = [
     "specSourceIds": [
       "demo"
     ],
+    "primaryTargets": [],
     "sources": [
       {
         "id": "demo",
@@ -370,6 +377,7 @@ export const demoProducts: readonly Product[] = [
     "specSourceIds": [
       "demo"
     ],
+    "primaryTargets": [],
     "sources": [
       {
         "id": "demo",
@@ -418,6 +426,7 @@ export const demoProducts: readonly Product[] = [
     "specSourceIds": [
       "demo"
     ],
+    "primaryTargets": [],
     "sources": [
       {
         "id": "demo",
@@ -467,6 +476,7 @@ export const demoProducts: readonly Product[] = [
     "specSourceIds": [
       "demo"
     ],
+    "primaryTargets": [],
     "sources": [
       {
         "id": "demo",

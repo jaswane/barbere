@@ -21,6 +21,7 @@ function fixture(id: string, level: SensitivityLevel): Product {
     features: [],
     reasons: { target: "test", finish: "test", sensitive: level === "neutral" ? undefined : "test" },
     specSourceIds: ["test"],
+    primaryTargets: [],
     sources: [{ id: "test", label: "Test", url: "https://example.com", retrievedAt: "2026-09-23" }],
     status: "active",
   };
