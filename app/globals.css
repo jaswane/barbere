@@ -459,8 +459,33 @@ footer p { margin: 0; font-size: .83rem; max-width: 700px; }
 .info-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin: 0; }
 #annonselenker { scroll-margin-top: 90px; }
 
+/* Samtykke til analyse og butikklenke på alternativene (GA4-sprint). */
+.consent {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 50;
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--ink);
+  color: #dfe8ed;
+  box-shadow: var(--shadow);
+}
+.consent-text { margin: 0; font-size: .92rem; line-height: 1.5; }
+.consent-text a { color: var(--mint); font-weight: 600; text-underline-offset: 3px; }
+.consent-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.footer-consent { background: transparent; border: 0; padding: 0; font: inherit; font-weight: 600; color: var(--muted); cursor: pointer; }
+.footer-consent:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.alt-link { display: block; width: fit-content; margin-top: 6px; color: var(--mint); font-weight: 700; font-size: .82rem; text-decoration: none; }
+.alt-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.alt-card .alt-link span { color: inherit; font-size: inherit; }
+
 @media (min-width: 640px) {
   .info-page { padding: 54px 0 80px; }
+  .consent { left: auto; right: 24px; bottom: 24px; max-width: 440px; }
 }
 
 @media (min-width: 900px) {

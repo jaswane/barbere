@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import { optionValues, questions, type Answers, type QuestionKey } from "@/data/questions";
 import { productName } from "@/data/products";
+import { trackEvent } from "@/lib/analytics";
 import type { OfferView } from "@/lib/offers";
 import { explain, selectProducts } from "@/lib/selector";
 import { registerModelContextTool } from "@/lib/webmcp";
@@ -21,6 +22,11 @@ function isComplete(answers: Partial<Answers>): answers is Answers {
   return answerKeys.every((key) => answers[key] !== undefined);
 }
 
+/** Sendes når et resultat vises. Bare svarene og produkt-id-en, ingenting om brukeren. */
+function trackComplete(answers: Answers) {
+  trackEvent("selector_complete", { ...answers, recommended_product_id: selectProducts(answers).best.id });
+}
+
 export function ShaverSelector({ offers }: { offers: Record<string, OfferView> }) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Partial<Answers>>({});
@@ -32,6 +38,7 @@ export function ShaverSelector({ offers }: { offers: Record<string, OfferView> }
   const result = showResults && isComplete(answers) ? { answers, ...selectProducts(answers) } : null;
 
   function choose(value: string) {
+    if (Object.keys(answers).length === 0) trackEvent("selector_start", {});
     // Oppdateres synkront slik at Neste-knappen er aktiv før den får fokus, som i prototypen.
     flushSync(() => setAnswers((current) => ({ ...current, [question.key]: value })));
     nextButton.current?.focus();
@@ -39,11 +46,16 @@ export function ShaverSelector({ offers }: { offers: Record<string, OfferView> }
 
   function goNext() {
     if (!selectedValue) return;
-    if (step < lastStep) setStep(step + 1);
-    else setShowResults(true);
+    if (step < lastStep) {
+      setStep(step + 1);
+      return;
+    }
+    setShowResults(true);
+    if (isComplete(answers)) trackComplete(answers);
   }
 
   function restart() {
+    trackEvent("selector_restart", {});
     setStep(0);
     setAnswers({});
     setShowResults(false);
@@ -71,6 +83,7 @@ export function ShaverSelector({ offers }: { offers: Record<string, OfferView> }
           setStep(lastStep);
           setShowResults(true);
           document.getElementById("velger")?.scrollIntoView({ behavior: "smooth" });
+          trackComplete(next);
           const { best, alternatives } = selectProducts(next);
           return { recommended: productName(best), alternatives: alternatives.map((product) => productName(product)) };
         },
@@ -161,7 +174,7 @@ export function ShaverSelector({ offers }: { offers: Record<string, OfferView> }
                 </div>
                 {offers[result.best.id] ? (
                   <div className="result-actions">
-                    <StoreLink offer={offers[result.best.id]} />
+                    <StoreLink offer={offers[result.best.id]} productId={result.best.id} placement="recommended" />
                   </div>
                 ) : null}
               </article>
@@ -176,6 +189,14 @@ export function ShaverSelector({ offers }: { offers: Record<string, OfferView> }
                     {explain(product, result.answers)}
                     {offers[product.id]?.priceText ? ` ${capitalize(offers[product.id].priceText ?? "")}.` : null}
                   </span>
+                  {offers[product.id] ? (
+                    <StoreLink
+                      offer={offers[product.id]}
+                      productId={product.id}
+                      placement={index === 0 ? "alternative_1" : "alternative_2"}
+                      className="alt-link"
+                    />
+                  ) : null}
                 </div>
                 <span className="alt-score">#{index + 2}</span>
               </div>

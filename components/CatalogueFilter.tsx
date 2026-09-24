@@ -119,7 +119,7 @@ export function ProductBrowser({ offers }: { offers: Record<string, OfferView> }
                       </div>
                     </div>
                   ) : null}
-                  {offer ? <StoreLink offer={offer} /> : null}
+                  {offer ? <StoreLink offer={offer} productId={product.id} placement="catalogue" /> : null}
                 </div>
               </div>
             </article>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ConsentSettingsLink } from "./AnalyticsConsent";
 
 const footerLinks = [
   { href: "/slik-velger-vi", label: "Slik velger vi" },
@@ -18,6 +19,7 @@ export function SiteFooter() {
                 {link.label}
               </Link>
             ))}
+            <ConsentSettingsLink />
           </nav>
           <p className="footer-credit">
             Et prosjekt fra <a href="https://swanecreative.no/">Swane Creative</a>

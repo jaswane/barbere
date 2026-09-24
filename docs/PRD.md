@@ -73,7 +73,7 @@ Det finnes **ingen kategorisider** og **ingen produktdetaljsider** ennå. Katego
 
 **Lager:** Ingen lagerstatus vises i UI. `availability` er bare en intern observasjon.
 
-**Tester:** 25 tester, blant dem kontroll av alle 192 kombinasjoner, datavalidering, sensitivitet, spesialisering, prisregler, determinisme og et gjennomgått snapshot av alle 192 resultater (`tests/__snapshots__/selector-192.json`).
+**Tester:** 28 tester, blant dem kontroll av alle 192 kombinasjoner, datavalidering, sensitivitet, spesialisering, prisregler, determinisme og et gjennomgått snapshot av alle 192 resultater (`tests/__snapshots__/selector-192.json`).
 
 ## 5. Affiliate
 
@@ -85,7 +85,7 @@ Det finnes **ingen kategorisider** og **ingen produktdetaljsider** ennå. Katego
 - `rel="sponsored nofollow"` på butikklenker.
 - Tydelig merking, med lenke til `#annonselenker`.
 - Et `affiliate_click`-event når analyse er på plass.
-- Personvernsiden oppdateres før aktivering.
+- Personvernsiden oppdateres før aktivering. Den beskriver i dag analyse med samtykke, ikke annonselenker.
 
 ## 6. Bilder
 
@@ -116,18 +116,31 @@ DNS ligger hos Domeneshop: A-record til Vercel for apex og CNAME for `www`. De g
 
 ## 8. Analytics
 
-**STATUS:** Ingen GA4 og ingen annen analyse. Siden setter ingen cookies.
+**STATUS: GA4 FERDIG. Samtykke FERDIG (Basic Consent Mode).** Måle-ID `G-W0F35E3KC9`, satt i `lib/analytics.ts`.
 
-Planlagte events (ikke implementert):
-- `selector_start`
-- `selector_complete`
-- `selector_restart`
-- `selector_result_click`
-- `alternative_click`
-- `product_store_click`
-- `affiliate_click` (når affiliate aktiveres)
+**Samtykke:** `components/AnalyticsConsent.tsx` viser et norsk banner til brukeren har valgt. Valget (`accepted` / `rejected`) lagres i `localStorage` under `barbere_analytics_consent_v1`. Footer-lenken «Personvernvalg» åpner banneret igjen. Ingen ekstern CMP og ingen Google Tag Manager.
 
-Samtykkeløsning og oppdatert personvernside må på plass før GA4.
+- gtag.js lastes først når brukeren godtar. Uten samtykke går ingen forespørsler til Google.
+- Consent-standard: alt `denied`. Ved samtykke oppdateres bare `analytics_storage` til `granted`. Google Ads brukes ikke.
+- Bytter brukeren fra godtatt til avslått, settes `ga-disable`-flagget, samtykket trekkes tilbake, og `_ga`-cookiene fjernes.
+- Ingen cookieless pings (Advanced Consent Mode).
+
+**Page views:** Taggen konfigureres med `send_page_view: false`. Én `page_view` sendes per faktisk sidevisning fra `AnalyticsConsent`, som følger `usePathname()`. Hvis «Sideendringer basert på nettleserhistorikk» er slått på under Utvidet måling i GA4, må den slås av, ellers telles Next-navigasjoner dobbelt.
+
+**Events** (`trackEvent` i `lib/analytics.ts`, no-op uten samtykke):
+
+| Event | Når | Parametere |
+|---|---|---|
+| `selector_start` | Første svar i en ny velgerrunde | – |
+| `selector_complete` | Resultatet vises | `target`, `finish`, `sensitive`, `method`, `budget`, `recommended_product_id` |
+| `selector_restart` | «Start velgeren på nytt» | – |
+| `selector_result_click` | Butikkknapp på hovedvalget | `product_id`, `store`, `placement: recommended` |
+| `alternative_click` | Butikklenke på et alternativ | `product_id`, `store`, `placement: alternative_1` / `alternative_2` |
+| `product_store_click` | Butikkknapp i katalogen | `product_id`, `store`, `placement: catalogue` |
+
+Ingen personopplysninger, fritekst eller fulle butikk-URL-er sendes.
+
+**`affiliate_click`: DEFERRED** til affiliate aktiveres (punkt 5).
 
 ## 9. Juridisk og tillit
 
@@ -157,7 +170,7 @@ Forslag til rutine:
 | `metadataBase`, canonical, sitemap, robots | Ferdig (domenesprint) |
 | Midlertidig noindex fjernet | Ferdig (domenesprint) |
 | Google Search Console | Ferdig: koblet, sitemap sendes inn manuelt |
-| Analyse og samtykke vurdert | Mangler beslutning |
+| Analyse og samtykke | Ferdig: GA4 med Basic Consent Mode |
 | Favicon, apple-icon og Open Graph kontrollert | Delvis: favicon finnes, apple-icon og OG mangler |
 | Mobil-QA på ekte enheter | Mangler |
 | build, lint, typecheck og test grønt | Ferdig |

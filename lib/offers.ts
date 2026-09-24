@@ -8,6 +8,7 @@ export const PRICE_MAX_AGE_DAYS = 60;
 
 /** Det UI-et trenger for å vise et tilbud. Lages på serveren og sendes til klientkomponentene. */
 export interface OfferView {
+  storeId: string;
   storeName: string;
   url: string;
   /** «ca. 940 kr» eller «Nå 719 kr». Mangler når prisen er for gammel. */
@@ -38,7 +39,7 @@ export function primaryOffer(productId: string, list: readonly Offer[] = allOffe
 
 export function offerView(offer: Offer, today: Date): OfferView {
   const store = stores[offer.storeId];
-  const view: OfferView = { storeName: store.name, url: offer.destinationUrl };
+  const view: OfferView = { storeId: store.id, storeName: store.name, url: offer.destinationUrl };
   if (daysSince(offer.price.observedAt, today) > PRICE_MAX_AGE_DAYS) return view;
 
   if (offer.price.type === "regular") {
