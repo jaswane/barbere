@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { test } from "node:test";
 import { offers } from "../data/offers.ts";
 import { activeProducts, products } from "../data/products.ts";
@@ -40,6 +42,22 @@ test("hvert produkt har dokumenterte egenskaper", () => {
       if (!validDate(source.retrievedAt)) problems.push(`${product.id}: ugyldig dato i kilde ${source.id}`);
       if (!source.url.startsWith("https://")) problems.push(`${product.id}: kilde uten https-adresse`);
     }
+  }
+  assert.deepEqual(problems, []);
+});
+
+test("produktbilder finnes lokalt, er Icecats egne filer og har alt-tekst", () => {
+  const problems: string[] = [];
+  for (const product of products) {
+    const image = product.image;
+    if (!image) continue;
+    const file = path.join(process.cwd(), "public", image.src);
+    if (!existsSync(file)) problems.push(`${product.id}: ${image.src} finnes ikke`);
+    if (!image.src.endsWith(".jpg")) problems.push(`${product.id}: bildet skal være Icecats JPEG, ikke konvertert`);
+    if (!image.sourceUrl.startsWith("https://images.icecat.biz/")) problems.push(`${product.id}: ukjent bildekilde`);
+    if (!validDate(image.retrievedAt)) problems.push(`${product.id}: ugyldig hentedato for bildet`);
+    if (image.alt.length < 15 || !image.alt.startsWith(product.brand)) problems.push(`${product.id}: svak alt-tekst`);
+    if (image.width <= 0 || image.height <= 0) problems.push(`${product.id}: mangler bildemål`);
   }
   assert.deepEqual(problems, []);
 });

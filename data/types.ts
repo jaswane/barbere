@@ -44,7 +44,21 @@ export interface Product {
   /** Kilde med sitat som viser primærområdet. Påkrevd når `primaryTargets` ikke er tomt. */
   primaryTargetsSourceId?: string;
   sources: SourceRef[];
-  image?: { src: string; alt: string; width: number; height: number; credit?: string };
+  /**
+   * Lokalt produktbilde under `public/`. Filen er Icecats egen JPEG, uendret (ingen ny
+   * komprimering, format eller beskjæring), slik Open Content License §1 krever for kopier.
+   */
+  image?: {
+    src: string;
+    /** Kort, konkret alt-tekst på norsk. */
+    alt: string;
+    width: number;
+    height: number;
+    source: "open-icecat";
+    /** Icecats originale filadresse. Brukes ikke i visningen, bare til sporing. */
+    sourceUrl: string;
+    retrievedAt: string; // YYYY-MM-DD
+  };
   status: "active" | "retired";
 }
 

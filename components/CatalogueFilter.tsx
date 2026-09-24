@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { filterLabels, type FilterKey } from "@/data/catalogue";
 import { productName } from "@/data/products";
@@ -93,10 +94,23 @@ export function ProductBrowser({ offers }: { offers: Record<string, OfferView> }
           const offer = offers[product.id];
           return (
             <article className="product-card" key={product.id}>
-              <div className="product-visual" aria-hidden="true">
-                <span className="product-visual-brand">{product.brand}</span>
-                <span className="product-visual-model">{product.model}</span>
-              </div>
+              {product.image ? (
+                <div className="product-visual has-image">
+                  {/* `unoptimized`: Icecats JPEG skal serveres uendret, ikke re-kodes av Next. */}
+                  <Image
+                    src={product.image.src}
+                    alt={product.image.alt}
+                    width={product.image.width}
+                    height={product.image.height}
+                    unoptimized
+                  />
+                </div>
+              ) : (
+                <div className="product-visual" aria-hidden="true">
+                  <span className="product-visual-brand">{product.brand}</span>
+                  <span className="product-visual-model">{product.model}</span>
+                </div>
+              )}
               <div className="product-body">
                 <span className="product-type">{product.productType}</span>
                 <h3>{productName(product)}</h3>

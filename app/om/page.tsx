@@ -39,6 +39,23 @@ export default function AboutPage() {
         </p>
       </section>
 
+      <section className="info-section" id="bildekilder">
+        <h2>Bildekilder</h2>
+        <p>
+          Bildene av de fem Philips-produktene kommer fra <a href="https://icecat.biz/">Open Icecat</a>, en åpen
+          produktkatalog der produsentene selv leverer bilder og produktdata. Barbere.no lagrer Icecats filer uendret og
+          bruker dem under Icecats <a href="https://iceclog.com/open-content-license/">Open Content License</a>.
+        </p>
+        <p>
+          Icecat og leverandørene leverer innholdet «AS IS», uten garanti for at det er korrekt eller oppdatert. Database
+          Right data-sheet 2026 Icecat. All rights reserved.
+        </p>
+        <p>
+          De andre produktene vises med merke og modell i stedet for bilde, fordi bruksretten ikke er avklart. Bilder kan
+          bli byttet ut eller fjernet hvis rettighetsgrunnlaget endres.
+        </p>
+      </section>
+
       <section className="info-section">
         <h2>Kontakt</h2>
         <p>

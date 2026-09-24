@@ -73,7 +73,7 @@ Det finnes **ingen kategorisider** og **ingen produktdetaljsider** ennå. Katego
 
 **Lager:** Ingen lagerstatus vises i UI. `availability` er bare en intern observasjon.
 
-**Tester:** 28 tester, blant dem kontroll av alle 192 kombinasjoner, datavalidering, sensitivitet, spesialisering, prisregler, determinisme og et gjennomgått snapshot av alle 192 resultater (`tests/__snapshots__/selector-192.json`).
+**Tester:** 29 tester, blant dem kontroll av alle 192 kombinasjoner, datavalidering, sensitivitet, spesialisering, prisregler, determinisme og et gjennomgått snapshot av alle 192 resultater (`tests/__snapshots__/selector-192.json`).
 
 ## 5. Affiliate
 
@@ -89,11 +89,22 @@ Det finnes **ingen kategorisider** og **ingen produktdetaljsider** ennå. Katego
 
 ## 6. Bilder
 
-**STATUS:** Ekte produktbilder mangler. Produktkortene viser merke og modell i en plassholder.
+**STATUS: DELVIS (Phase 2E.2, 24.09.2026).** Fem Philips-produkter har bilde fra Open Icecat. Seks produkter (Braun Series 5, Mühle R89, Mühle Companion, Remington XR1600, XR1500 og MB7050) viser fortsatt merke og modell i plassholderen, til bruksretten er avklart gjennom affiliate-feed eller skriftlig tillatelse.
 
-- Bilder skal ikke hotlinkes fra produsent eller butikk.
-- Bruksrett må avklares: produsentens media kit, affiliate-feed eller skriftlig tillatelse.
-- Lokale, optimaliserte WebP eller AVIF foretrekkes, i dagens 16:9-ramme.
+**Kilde og lisens:** Philips er Open Icecat-sponsor. Bildene brukes under Open Content License v1.4 (11.02.2026), etter den konservative løsningen fra Phase 2E.1B:
+- Filene er Icecats egne Pic500x500-JPEG-er (500 × 500, 70–82 KB), lastet ned uendret til `public/images/products/`. Ingen ny komprimering, WebP/AVIF eller beskjæring. Icecats filnavn er SHA-1 av innholdet, så identiteten kan kontrolleres mot `sourceUrl` i `data/products.ts`.
+- Ingen hotlinking. Icecat sier selv at bildelenkene ikke er stabile.
+- Rendering med `next/image` og `unoptimized`, slik at Next ikke re-koder. CSS viser hele bildet med `object-fit: contain` i dagens 16:9-ramme på hvit bakgrunn.
+- Hvert bilde har `src`, `alt`, mål, `source`, `sourceUrl` og `retrievedAt`. En datatest kontrollerer at filen finnes og at kilden er Icecat.
+
+**Kreditt og forbehold (krav i lisensens §1):**
+- Forsiden, der bildene vises, har en linje under katalogen: «Produktbilder fra Philips via Open Icecat, levert «AS IS» uten garanti for at de er korrekte eller oppdaterte. Database Right data-sheet [år] Icecat. All rights reserved.» «Open Icecat» lenker til icecat.biz. Året følger `retrievedAt`.
+- `/om#bildekilder` forklarer kilden, lenker til Open Content License, gjentar AS IS-forbeholdet og sier at bilder kan bli byttet ut eller fjernet hvis rettighetsgrunnlaget endres.
+- Philips-kreditt er ikke et lisenskrav, men bildene omtales som «fra Philips via Open Icecat».
+
+**Vedlikehold:** Hent bildene på nytt fra Icecat ved den månedlige gjennomgangen (lisensens §4). Trekker Philips eller Icecat tilbake bildene, fjernes `image`-feltet og filen, og kortet faller tilbake til plassholderen.
+
+**Gjenstår:** Resultatkortet i velgeren viser ikke bilde. De seks andre produktene venter på affiliate-feed eller annen rettighetskilde.
 
 ## 7. SEO og domene
 
@@ -104,7 +115,7 @@ Det finnes **ingen kategorisider** og **ingen produktdetaljsider** ennå. Katego
 - **Google Search Console:** Eiendommen er koblet. Sitemap sendes inn manuelt: `https://barbere.no/sitemap.xml`.
 - **`metadataBase`:** `https://barbere.no`, satt i `app/layout.tsx`.
 - **Canonical:** Hver indekserbar side setter sin egen canonical på apex (`/`, `/slik-velger-vi`, `/om`, `/personvern`). Canonical settes per side og ikke i layout, slik at 404 ikke arver forsidens canonical.
-- **`app/robots.ts`:** Tillater alt og peker til sitemapen. `/go/` blokkeres ikke i robots, fordi en blokkert side ikke kan lese `noindex`.
+- **`app/robots.ts`:** Tillater alt for vanlige crawlere og peker til sitemapen. `/go/` blokkeres ikke i robots, fordi en blokkert side ikke kan lese `noindex`. Open Icecat Fair Use Policy (02.05.2026) ber om at robots.txt utestenger crawlere som samler innhold til blant annet AI-trening. Derfor har seks tokens `Disallow: /`: GPTBot, ClaudeBot, Google-Extended, Applebot-Extended, CCBot og meta-externalagent. Alle er dokumentert av operatørene som styring av treningsbruk, og ingen påvirker Google Søk, Siri eller ChatGPT-søk. Policyen nevner også «analytics» og «content aggregation», men navngir ingen crawlere, så det er ikke implementert.
 - **`app/sitemap.ts`:** De fire sidene over, som absolutte apex-URL-er. `lastModified` er utelatt fordi vi ikke har en pålitelig dato per side.
 - **Midlertidig noindex er fjernet** fra `next.config.ts`. 404 har fortsatt `noindex`, og det setter Next.js selv.
 
@@ -164,7 +175,7 @@ Forslag til rutine:
 | Gate | Status |
 |---|---|
 | Selector kvalitetssikret | Ferdig (Phase 2C.5) |
-| Produktbilder eller godkjent plassholder-strategi | Mangler beslutning |
+| Produktbilder eller godkjent plassholder-strategi | Delvis: 5 Philips-bilder fra Open Icecat, 6 plassholdere |
 | Affiliate aktivert, eller eksplisitt beslutning om lansering uten | Mangler beslutning |
 | Juridisk avsender ferdig | Mangler |
 | `metadataBase`, canonical, sitemap, robots | Ferdig (domenesprint) |
