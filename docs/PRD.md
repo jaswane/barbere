@@ -99,9 +99,11 @@ Det finnes **ingen kategorisider** og **ingen produktdetaljsider** ennå. Katego
 
 **STATUS:** barbere.no er ikke koblet. Nåværende adresse er https://barbere-oe5x.vercel.app.
 
-Venter til domenesprinten:
-- `metadataBase`, canonical, `sitemap.ts`, `robots.ts` og Google Search Console.
-- Apex (`https://barbere.no`) blir primærdomene. `www` redirecter til apex.
+**Midlertidig noindex:** Fram til lansering sender hele nettstedet `X-Robots-Tag: noindex, nofollow` (satt i `next.config.ts`). Regelen **må fjernes i domenesprinten**.
+
+Domenesprinten skal samtidig aktivere:
+- barbere.no som apex og primærdomene (`https://barbere.no`), med `www` som redirecter til apex.
+- `metadataBase`, canonical, `robots.ts`, `sitemap.ts` og Google Search Console.
 - `/go/` skal ikke ligge i sitemap og skal ha `noindex`.
 
 DNS ligger hos Domeneshop. Vercels anbefalte records og de gamle A/AAAA-recordene som må fjernes, er dokumentert i domene-preflighten.
