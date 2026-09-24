@@ -19,6 +19,9 @@ export function SiteFooter() {
               </Link>
             ))}
           </nav>
+          <p className="footer-credit">
+            Et prosjekt fra <a href="https://swanecreative.no/">Swane Creative</a>
+          </p>
         </div>
         <p>
           Barbere.no har ingen samarbeid med butikker eller merkevarer. Prisene er sjekket for hånd og oppdateres ikke

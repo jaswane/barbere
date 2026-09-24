@@ -435,6 +435,9 @@ footer p { margin: 0; font-size: .83rem; max-width: 700px; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px; font-size: .86rem; }
 .footer-nav a { color: var(--muted); font-weight: 600; text-decoration: none; }
 .footer-nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.footer-credit { margin-top: 10px; }
+.footer-credit a { color: var(--ink-2); font-weight: 600; text-underline-offset: 3px; }
+.footer-credit a:hover { color: var(--ink); }
 
 .info-page { padding: 34px 0 64px; }
 .info-head { max-width: 760px; }
